@@ -43,8 +43,8 @@
 				      :
 				      <%= select_tag("wf_calendar_second", options_for_select(WillFilter::Calendar.second_options, @calendar.second)) %>
 			    </div>
-		      <%=link_to_function("<span>Set Date and Time</span>".html_safe, "wfCalendar.setDateTime()", :class => "wf_grey_button wf_pcb") %>
-		      <%=link_to_function("<span>Cancel</span>".html_safe, "wfCalendar.hide()", :class => "wf_grey_button wf_pcb") %>
+          <%=link_to_function("<span>#{t 'will_filter.calendar.set_date_time'}</span>".html_safe, "wfCalendar.setDateTime()", :class => "wf_grey_button wf_pcb") %>
+          <%=link_to_function("<span>#{t 'will_filter.calendar.cancel'}</span>".html_safe, "wfCalendar.hide()", :class => "wf_grey_button wf_pcb") %>
 		  </div>
 		<% end %>
 	
