@@ -1,18 +1,3 @@
-<table class='wf_paginator' style="margin-top:10px; margin-bottom:10px;">
-    <tr>
-        <td style='text-align:left'>
-            <%= paginate(results) %>
-        </td>
-        <td style='text-align:right'>
-						<% if results.total_count > 0 %>
-							Showing <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> of <%= results.total_count %>
-						<% else %>	
-							No results found
-						<% end %>
-        </td>
-    </tr>
-</table>
-
 <table class='wf_results_table'>
   <thead>
     <tr>
@@ -202,3 +187,19 @@
     }
   }
 </script>
+
+<table class='wf_paginator' style="margin-top:10px; margin-bottom:10px;">
+    <tr>
+        <td style='text-align:left'>
+            <%= paginate(results) %>
+        </td>
+        <td style='text-align:right'>
+						<% if results.total_count > 0 %>
+							Showing <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> of <%= results.total_count %>
+						<% else %>	
+							No results found
+						<% end %>
+        </td>
+    </tr>
+</table>
+
