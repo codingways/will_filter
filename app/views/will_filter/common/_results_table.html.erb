@@ -67,7 +67,7 @@
           else
             column_title = cmeta[:title] || filter.condition_title_for(cmeta[:key])  
             if sortable
-              column_title = link_to(column_title, filter.to_params(:wf_order => cmeta[:key], :wf_order_type => sort_direction_click), :title => "sort by #{cmeta[:key]} ascending", :class => "sort_link")
+              column_title = link_to(t("activerecord.attributes.#{controller_name.classify.downcase}.#{column_title.downcase.gsub(' ', '_')}"), filter.to_params(:wf_order => cmeta[:key], :wf_order_type => sort_direction_click), :title => "sort by #{cmeta[:key]} ascending", :class => "sort_link")
             end  
           end  
 
@@ -86,7 +86,7 @@
           <div class="table_head_container">
             <% if sortable %>
               <div class="sort_control">
-                <%= link_to "", filter.to_params(:wf_order => sort_key, :wf_order_type => 'asc'), :title => "sort by #{sort_key} ascending", :class => 'up' %>
+                <%= link_to "", filter.to_params(:wf_order => sort_key, :wf_order_type => 'asc'), :title => "sort by #{t sort_key} ascending", :class => 'up' %>
                 <%= link_to "", filter.to_params(:wf_order => sort_key, :wf_order_type => 'desc'), :title => "sort by #{sort_key} descending", :class => 'down' %>
               </div>
             
@@ -195,11 +195,12 @@
         </td>
         <td style='text-align:right'>
 						<% if results.total_count > 0 %>
-							Showing <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> of <%= results.total_count %>
-						<% else %>	
-							No results found
+              <%= t 'will_filter.messages.showing', default: 'Showing' %> <%= results.offset_value + 1 %> - <%= results.offset_value + results.length %> of <%= results.total_count %>
+            <% else %>
+              <%= t 'will_filter.messages.no_results', default: 'No results found' %>  
 						<% end %>
         </td>
     </tr>
 </table>
+
 

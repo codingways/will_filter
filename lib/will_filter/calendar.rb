@@ -23,10 +23,31 @@
 
 module WillFilter
   class Calendar
-  
-    MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] unless defined?(MONTHS)
+=begin
+    MONTHS = ["#{I18n.t 'will_filter.calendar.months.january'}",
+              "#{I18n.t 'will_filter.calendar.months.february'}",
+              "#{I18n.t 'will_filter.calendar.months.march'}",
+              "#{I18n.t 'will_filter.calendar.months.april'}",
+              "#{I18n.t 'will_filter.calendar.months.may'}",
+              "#{I18n.t 'will_filter.calendar.months.june'}",
+              "#{I18n.t 'will_filter.calendar.months.july'}",
+              "#{I18n.t 'will_filter.calendar.months.august'}",
+              "#{I18n.t 'will_filter.calendar.months.september'}",
+              "#{I18n.t 'will_filter.calendar.months.october'}",
+              "#{I18n.t 'will_filter.calendar.months.november'}",
+              "#{I18n.t 'will_filter.calendar.months.december'}"] unless defined?(MONTHS)
+
+    DAYS = ["#{I18n.t 'will_filter.calendar.days.sun'}", 
+            "#{I18n.t 'will_filter.calendar.days.mon'}", 
+            "#{I18n.t 'will_filter.calendar.days.tue'}", 
+            "#{I18n.t 'will_filter.calendar.days.wed'}", 
+            "#{I18n.t 'will_filter.calendar.days.thu'}", 
+            "#{I18n.t 'will_filter.calendar.days.fri'}", 
+            "#{I18n.t 'will_filter.calendar.days.sat'}"]  unless defined?(DAYS)
+=end
+    MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',  'September', 'October', 'November', 'December'] unless defined?(MONTHS)
     DAYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']  unless defined?(DAYS)
-    
+
     def initialize(selected_date = nil, start_date = nil, show_time = false, mode = 'month')
       if selected_date.blank?
         @selected_date = Time.now 
