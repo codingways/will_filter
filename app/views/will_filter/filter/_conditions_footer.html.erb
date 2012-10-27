@@ -1,7 +1,7 @@
 <div class="actions">
   <%= t 'will_filter.messages.order', default: 'Order'%>:
-  <%= select_tag(:wf_order, options_for_select(wf_filter.condition_options, wf_filter.order), {:onChange=>"markDirty()"}) %>
-  <%= select_tag(:wf_order_type, options_for_select(wf_filter.order_type_options, wf_filter.order_type), {:onChange=>"markDirty()"}) %>
+  <%= select_tag(:wf_order, options_for_select(wf_filter.condition_options, t("activerecord.attributes.#{controller_name.classify.downcase}.#{wf_filter.order.underscore.gsub(' ','_')}", default: wf_filter.order)), {:onChange=>"markDirty()"}) %>
+  <%= select_tag(:wf_order_type, options_for_select(wf_filter.order_type_options, t("will_filter.order.#{wf_filter.order_type}", default: wf_filter.order_type)), {:onChange=>"markDirty()"}) %>
   <%= t 'will_filter.messages.per_page', default: 'Per Page'%>:
   <%= select_tag(:wf_per_page, options_for_select(wf_filter.per_page_options, wf_filter.per_page.to_s), {:onChange=>"markDirty()"}) %>
   &nbsp;&nbsp;
