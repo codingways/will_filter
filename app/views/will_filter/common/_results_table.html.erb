@@ -63,9 +63,9 @@
           end
 
           if cmeta[:title].is_a?(Proc)
-            column_title = "activerecord.attributes.#{controller_name.classify.downcase}.#{cmeta[:title].call(filter).downcase.gsub(' ', '_')}"
+            column_title = t "activerecord.attributes.#{controller_name.classify.downcase}.#{cmeta[:title].call(filter).downcase.gsub(' ', '_')}"
           else
-            column_title = "activerecord.attributes.#{controller_name.classify.downcase}.#{(cmeta[:title] || filter.condition_title_for(cmeta[:key])).downcase.gsub(' ', '_')}"
+            column_title = t "activerecord.attributes.#{controller_name.classify.downcase}.#{(cmeta[:title] || filter.condition_title_for(cmeta[:key])).downcase.gsub(' ', '_')}"
             if sortable
               column_title = link_to(t("activerecord.attributes.#{controller_name.classify.downcase}.#{column_title.downcase.gsub(' ', '_')}"), filter.to_params(:wf_order => cmeta[:key], :wf_order_type => sort_direction_click), :title => "sort by #{cmeta[:key]} ascending", :class => "sort_link")
             end  
