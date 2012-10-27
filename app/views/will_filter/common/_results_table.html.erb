@@ -150,10 +150,10 @@
                   <% end -%>
                   
                 <% elsif value.is_a?(Time) %> 
-                  <%= l value#value.strftime("%m/%d/%Y %l:%M:%S") %>
+                  <%= l value, format: :short %>
 
                 <% elsif value.is_a?(Date) %>  
-                  <%= l value, format: :short#value.strftime("%m/%d/%Y") %>
+                  <%= l value %>
                   
                <% else %>
 
