@@ -12,7 +12,7 @@
   <div class="filter_match_type">
     <div class="end">
       <small>
-        <%=link_to_function("Toggle Conditions", "wfFilter.toggleDebugger()") %>
+        <%=link_to_function(t("will_filter.buttons.toggle_conditions", default: 'Toggle Conditions'), "wfFilter.toggleDebugger()") %>
       </small>
     </div>
     <%= t 'will_filter.messages.match', default: 'Match' %> <%= select_tag(:wf_match, options_for_select(wf_filter.match_options, wf_filter.match), {:onChange=>"wfFilter.markDirty()"}) %>
