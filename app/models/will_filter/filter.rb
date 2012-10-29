@@ -284,7 +284,7 @@ module WillFilter
       if keys.count > 1
         klass = keys.first.to_s.downcase 
       else
-        klass = model_class.to_s.downcase
+        klass = model_class_name.downcase
       end
       key = I18n.t("activerecord.attributes.#{klass}.#{keys.last.to_s}", default: key.to_s.gsub(".", ": ").gsub("_", " ").split("/").last)
       title = key.split(" ").collect{|part| part.capitalize}.join(" ")

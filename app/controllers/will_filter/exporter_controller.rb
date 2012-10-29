@@ -69,7 +69,7 @@ module WillFilter
       wf_filter.results.each do |obj|
         hash = {}
         wf_filter.fields.each do |field|
-          hash[field] = obj.send(field).to_s 
+          hash[field] = obj.send(field).to_s
         end  
         results << hash
       end
