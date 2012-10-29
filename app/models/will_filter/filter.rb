@@ -273,7 +273,7 @@ module WillFilter
     end
     
     def order_type_options
-      [[I18n.t("will_filter.match.order", default: 'desc'), "desc"], [I18n.t("will_filter.order.asc", default: 'asc'), "asc"]]
+      [[I18n.t("will_filter.order.desc", default: 'desc'), "desc"], [I18n.t("will_filter.order.asc", default: 'asc'), "asc"]]
     end
   
     #############################################################################
