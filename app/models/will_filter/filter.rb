@@ -305,7 +305,7 @@ module WillFilter
       
       opers = definition[condition_key]
       raise WillFilter::FilterException.new("Invalid condition #{condition_key} for filter #{self.class.name}") unless opers
-      sorted_operators(opers).collect{|o| [o.to_s.gsub('_', ' '), o]}
+      sorted_operators(opers).collect{|o| [I18n.t("will_filter.operators.#{o.to_s}",default: o.to_s).gsub('_', ' '), o]}
     end
     
     # called by the list container, should be overloaded in a subclass
