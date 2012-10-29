@@ -147,14 +147,14 @@ module WillFilter
       @month_options ||= begin
         mo = []
         MONTHS.each_with_index do |m, i|
-          mo << [m, i+1]
+          mo << [I18n.t("will_filter.calendar.months.#{m.downcase}"), i+1]
         end
         mo
       end    
     end
   
     def self.days
-      DAYS
+      DAYS.collect {|d| I18n.t "will_filter.calendar.days.#{d}"}
     end
     
     def self.hour_options

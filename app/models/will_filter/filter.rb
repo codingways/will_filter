@@ -269,19 +269,25 @@ module WillFilter
     end
     
     def match_options
-      [["all", "all"], ["any", "any"]]
+      [[I18n.t("will_filter.match.all", default: 'all'), "all"], [I18n.t("will_filter.match.any", default: 'any'), "any"]]
     end
     
     def order_type_options
-      [["desc", "desc"], ["asc", "asc"]]
+      [[I18n.t("will_filter.match.order", default: 'desc'), "desc"], [I18n.t("will_filter.order.asc", default: 'asc'), "asc"]]
     end
   
     #############################################################################
     # Can be overloaded for custom titles
     #############################################################################
     def condition_title_for(key)
-      title = key.to_s.gsub(".", ": ").gsub("_", " ").split("/").last
-      title.split(" ").collect{|part| part.capitalize}.join(" ")
+      keys = key.to_s.split(".")
+      if keys.count > 1
+        klass = keys.first.to_s.downcase 
+      else
+        klass = model_class.to_s.downcase
+      end
+      key = I18n.t("activerecord.attributes.#{klass}.#{keys.last.to_s}", default: key.to_s.gsub(".", ": ").gsub("_", " ").split("/").last)
+      title = key.split(" ").collect{|part| part.capitalize}.join(" ")
     end
     
     def condition_options
