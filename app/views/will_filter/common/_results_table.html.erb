@@ -64,12 +64,12 @@
 
           if cmeta[:title].is_a?(Proc)
             column_title = cmeta[:title].call(filter)
-             column_title = t("activerecord.attributes.#{controller_name.downcase}.#{column_title.underscore.gsub(' ', '_')}", default: column_title)
+             column_title = t("activerecord.attributes.#{controller_name.singularize.downcase}.#{column_title.underscore.gsub(' ', '_')}", default: column_title)
           else
             column_title = cmeta[:title] || filter.condition_title_for(cmeta[:key])
-            column_title = t("activerecord.attributes.#{controller_name.downcase}.#{column_title.underscore.gsub(' ', '_')}", default: column_title)
+            column_title = t("activerecord.attributes.#{controller_name.singularize.downcase}.#{column_title.underscore.gsub(' ', '_')}", default: column_title)
             if sortable
-              column_title = link_to(t("activerecord.attributes.#{controller_name.downcase}.#{column_title.downcase.gsub(' ', '_')}", default: column_title), filter.to_params(:wf_order => cmeta[:key], :wf_order_type => sort_direction_click), :title => "sort by #{cmeta[:key]} ascending", :class => "sort_link")
+              column_title = link_to(t("activerecord.attributes.#{controller_name.singularize.downcase}.#{column_title.downcase.gsub(' ', '_')}", default: column_title), filter.to_params(:wf_order => cmeta[:key], :wf_order_type => sort_direction_click), :title => "sort by #{cmeta[:key]} ascending", :class => "sort_link")
             end  
           end  
           # column class name 
